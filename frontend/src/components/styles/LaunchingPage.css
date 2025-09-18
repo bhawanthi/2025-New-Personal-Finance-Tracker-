@@ -1,0 +1,242 @@
+/* Launching Page Styles - Matching App Theme */
+.launching-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out;
+}
+
+.launching-container.fade-out {
+  opacity: 0;
+}
+
+.launching-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.logo-container {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.logo-glow {
+  position: relative;
+  display: inline-block;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 
+    0 0 30px rgba(255, 255, 255, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+.logo-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(224, 231, 255, 0.3), rgba(255, 255, 255, 0.3));
+  border-radius: 22px;
+  z-index: -1;
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+.logo-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3));
+  border-radius: 50%;
+}
+
+.brand-text {
+  margin-top: 2rem;
+}
+
+.brand-name {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.2em;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(224, 231, 255, 0.2),
+    0 0 30px rgba(255, 255, 255, 0.1);
+  animation: textGlow 2s ease-in-out infinite alternate;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-tagline {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0.5rem 0;
+  letter-spacing: 0.1em;
+  opacity: 0.9;
+}
+
+.brand-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0.5rem 0 0 0;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.loading-indicator {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: dotPulse 1.4s ease-in-out infinite both;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.loading-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.15),
+      inset 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow: 
+      0 0 40px rgba(255, 255, 255, 0.25),
+      inset 0 0 25px rgba(255, 255, 255, 0.15);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 
+      0 0 10px rgba(255, 255, 255, 0.3),
+      0 0 20px rgba(224, 231, 255, 0.2),
+      0 0 30px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    text-shadow: 
+      0 0 15px rgba(255, 255, 255, 0.4),
+      0 0 25px rgba(224, 231, 255, 0.3),
+      0 0 35px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes dotPulse {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .brand-name {
+    font-size: 2.8rem;
+  }
+  
+  .brand-tagline {
+    font-size: 1rem;
+  }
+  
+  .logo-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .logo-glow {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 2.2rem;
+  }
+  
+  .brand-tagline {
+    font-size: 0.9rem;
+  }
+  
+  .logo-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo-glow {
+    padding: 1.2rem;
+  }
+}
