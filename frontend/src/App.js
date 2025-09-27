@@ -4,9 +4,6 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
 import LaunchingPage from './components/LaunchingPage';
-import Transactions from './components/Transactions';
-import Budget from './components/Budget';
-import Goals from './components/Goals';
 import { isAuthenticated } from './utils/auth';
 import './styles/App.css';
 
@@ -66,18 +63,6 @@ function App() {
           <Route 
             path="/home" 
             element={userAuthenticated ? <Home /> : <Navigate to="/login" replace />} 
-          />
-          <Route 
-            path="/transactions" 
-            element={userAuthenticated ? <Transactions /> : <Navigate to="/login" replace />} 
-          />
-          <Route 
-            path="/budgets" 
-            element={userAuthenticated ? <Budget /> : <Navigate to="/login" replace />} 
-          />
-          <Route 
-            path="/goals" 
-            element={userAuthenticated ? <Goals /> : <Navigate to="/login" replace />} 
           />
           <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
